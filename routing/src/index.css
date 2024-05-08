@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.nav{
+    display: flex;
+    height: 10vh;
+    background-color: rgb(58, 58, 58);
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 30px;
+}
+.logo{
+    font-size: 35px;
+    font-weight: bold;
+}
+.nav-links{
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.link{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+.link:hover{
+    color: rgb(249, 171, 25);
+    text-decoration: underline;
+    transition:all 0.3s ease;
+    cursor: pointer;
+}
+.login button{
+    margin-right: 30px;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    font-size: 20px;
+}
+.login button:hover{
+    background-color:rgb(247, 202, 4) ;
+    color: white;
+    cursor: pointer;
+}
+
+.loginpage form{
+    border: 2px solid black;
+    width: 400px;
+    margin: 100px auto;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loginpage input{
+    width: 200px;
+    height: 30px;
+}

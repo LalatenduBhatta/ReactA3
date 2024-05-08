@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Animal {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            getInfo() {
+                console.log(`The name of the animal is ${this.name} 
+                and it's age is ${this.age}`)
+            }
+        }
+        class Dog extends Animal {
+            constructor(name, age, breed) {
+                super(name, age)
+                this.breed = breed
+            }
+            getSound() {
+                console.log("waaoooo");
+            }
+        }
+        let Dog1 = new Dog("Rock", 5.4, "Husky")
+        console.log(Dog1);
+        Dog1.getInfo()
+        Dog1.getSound()
+    </script>
+
+</body>
+
+</html>
