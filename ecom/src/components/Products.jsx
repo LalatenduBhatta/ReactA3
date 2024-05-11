@@ -1,5 +1,6 @@
 import React from 'react'
 import { useProducts } from '../context/productContext';
+import { Link } from 'react-router-dom';
 function Products() {
     let products = useProducts()
     return (
@@ -9,16 +10,19 @@ function Products() {
                     return (
                         <div class=" bg-white border border-gray-200 
                         rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" key={product.id}>
-                            <a href="#">
+                            <Link to={`/products/${product.id}`}>
                                 <img class="p-8 rounded-t-lg h-[300px] w-[300px]" src={product.images[0]}
                                     alt="product image" />
-                            </a>
+                            </Link>
                             <div class="px-5 pb-5">
                                 <a href="#">
                                     <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                                         {product.title}
                                     </h5>
                                 </a>
+                                <div className="text-lg text-gray-800 dark:text-white">
+                                    {product.description}
+                                </div>
                                 <div class="flex items-center justify-between">
                                     <span class="text-3xl font-bold text-gray-900 dark:text-white">
                                         {product.price}$</span>
@@ -31,7 +35,7 @@ function Products() {
                         </div>
                     )
                 })}
-            </div>
+            </div >
         </>
     )
 }

@@ -8,6 +8,7 @@ import Cart from "./components/Cart"
 import Login from "./components/auth/Login"
 import Signup from "./components/auth/Signup"
 import Footer from './components/Footer'
+import SingleProduct from './components/SingleProduct'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/products/:id" element={<SingleProduct />} />
         </Routes>
         <Footer />
       </BrowserRouter>
