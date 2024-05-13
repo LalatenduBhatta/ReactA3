@@ -1,10 +1,29 @@
 import React from 'react'
 import { useProducts } from '../context/productContext';
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/cartContext';
 function Products() {
-    let products = useProducts()
+    const products = useProducts()
+    const { cartItems, setCartItems } = useCart()
+
+    const handelCart = (item) => {
+        const isAvailable = cartItems.find(product => product.id == item.id)
+        if (isAvailable) {
+            const updatedCart = cartItems?.map(product => {
+                if (product.id == item.id) {
+                    product.count = product.count + 1
+                }
+                return product
+            })
+            setCartItems(updatedCart)
+        }
+        else {
+            setCartItems((prev) => [...prev, { ...item, count: 1 }])
+        }
+    }
     return (
         <>
+            {/* {console.log(cartItems)} */}
             <div className=" bg-gray-700 gap-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
                 {products.map(product => {
                     return (
@@ -29,7 +48,9 @@ function Products() {
                                     <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 
                                     focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg
                                      text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 
-                                     dark:focus:ring-blue-800">Add to cart</a>
+                                     dark:focus:ring-blue-800"
+                                        onClick={() => handelCart(product)}
+                                    >Add to cart</a>
                                 </div>
                             </div>
                         </div>
